@@ -1,11 +1,10 @@
 import numpy as np
-#data kriteria yang sudah di numerisasi dan dirotate -90
-num = [[4,2,3,1],
-       [4,4,4,4],
-       [4,2,4,4],
-       [2,2,2,2],
-       [3,3,2,4]]
-kriteria = np.rot90(num)[::-1]
+
+kriteria  = [[4,4,4,2,3],
+        [2,4,2,2,3],
+        [3,4,4,2,2],
+        [1,4,4,2,4]]
+num = np.rot90(kriteria)[::-1]
 
 bobot = [0.15,0.25,0.1,0.1,0.4]
 
@@ -20,7 +19,7 @@ for i in num:
 
 mtx_ternormalisasi = np.zeros((4,5))
 
-for idx in range(5):
+for idx in range(len(pembagi)):
     for i in range(len(num[idx])):
         print(f'hasil kolom {idx+1} '+ str(round(num[idx][i]/pembagi[idx],3)))
         mtx_ternormalisasi[i][idx]=round(num[idx][i]/pembagi[idx],3)
