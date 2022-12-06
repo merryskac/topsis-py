@@ -3,7 +3,8 @@
 #terdapat 5 kriteria dengan bobot 0.15, 0.25, 0.1, 0.1, 0.4
 
 import numpy as np
-
+merk = ['asus','HP','Lenovo','Acer']
+#kriteria terurut berdasarkan merk
 kriteria  = [[4,4,4,2,3], #asus
         [2,4,2,2,3], #HP
         [3,4,4,2,2], #Lenovo
@@ -57,9 +58,19 @@ for i in mtx_normal_bobot:
     ideal_negatif.append(np.round(np.sqrt(sum((i-min_value_per_kriteria)**2)),3))
     a+=1
 print('---------------preferensi--------------------')
-print(ideal_negatif)
+# print(ideal_negatif)
+peringkat = []
 for i in range(len(ideal_negatif)):
-    print(np.round(ideal_negatif[i]/(ideal_negatif[i]+ideal_positif[i]),3))
+    get_peringkat = np.round(ideal_negatif[i]/(ideal_negatif[i]+ideal_positif[i]),3)
+    peringkat.append(get_peringkat)
+peringkat_merk=dict(zip(merk,peringkat))
+print(peringkat_merk)
+print('---------------pemeringkatan--------------------')
+print(dict(sorted(peringkat_merk.items(),key=lambda merk: merk[1],reverse=True)))
+
+
+
+
 
 
 
