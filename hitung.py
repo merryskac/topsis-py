@@ -1,9 +1,13 @@
+#SPK pemilihan laptop
+#terdapat 5 merk, yaitu asus, HP, Lenovo, Acer
+#terdapat 5 kriteria dengan bobot 0.15, 0.25, 0.1, 0.1, 0.4
+
 import numpy as np
 
-kriteria  = [[4,4,4,2,3],
-        [2,4,2,2,3],
-        [3,4,4,2,2],
-        [1,4,4,2,4]]
+kriteria  = [[4,4,4,2,3], #asus
+        [2,4,2,2,3], #HP
+        [3,4,4,2,2], #Lenovo
+        [1,4,4,2,4]] #acer 
 num = np.rot90(kriteria)[::-1]
 
 bobot = [0.15,0.25,0.1,0.1,0.4]
